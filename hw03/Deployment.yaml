@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: hello-java-app
+  template:
+    metadata:
+      labels:
+        app: hello-java-app
+    spec:
+      containers:
+        - name: hello-app
+          image: alexij159/otus:hw03
+          imagePullPolicy: "Always"
+          ports:
+            - name: web
+              containerPort: 8000
+          env:
+            - name: datasource.password
+              valueFrom:
+                secretKeyRef:
+                  name: bd-secret
+                  key: datasource.password
+          envFrom:
+            - configMapRef:
+                name: general-config
+          resources:
+            limits:
+              memory: "1280M"
+              cpu: "700m"
+            requests:
+              memory: "1280M"
+              cpu: "400m"
+#          volumeMounts:
+#            - name: vol-hw
+#              mountPath: /app/config/application.yml
+#      volumes:
+#        - name: vol-hw
+#          configMap:
+#            name: general-config
+#            cat /app/config/application.yml

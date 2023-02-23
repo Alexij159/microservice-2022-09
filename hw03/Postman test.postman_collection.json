@@ -1,0 +1,132 @@
+{
+	"info": {
+		"_postman_id": "2462cd94-3a8e-4a0b-9ecc-06fef9caf958",
+		"name": "Postman test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17560342"
+	},
+	"item": [
+		{
+			"name": "create new user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Ivan\",\n    \"age\": 30\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "arch.homework/client/create_client",
+					"host": [
+						"arch",
+						"homework"
+					],
+					"path": [
+						"client",
+						"create_client"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get created client",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "arch.homework/client/1",
+					"host": [
+						"arch",
+						"homework"
+					],
+					"path": [
+						"client",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update new client",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"client_id\": 1,\n    \"name\": \"My new name\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "arch.homework/client/update_client",
+					"host": [
+						"arch",
+						"homework"
+					],
+					"path": [
+						"client",
+						"update_client"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get updated client",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "arch.homework/client/1",
+					"host": [
+						"arch",
+						"homework"
+					],
+					"path": [
+						"client",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete client",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"client_id\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "arch.homework/client/delete_client",
+					"host": [
+						"arch",
+						"homework"
+					],
+					"path": [
+						"client",
+						"delete_client"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
